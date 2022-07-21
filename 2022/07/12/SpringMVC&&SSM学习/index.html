@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>SpringMVC学习 | 一条咸鱼</title><meta name="keywords" content="后端学习"><meta name="author" content="ZhengBingwen"><meta name="copyright" content="ZhengBingwen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SpringMVC基础步骤 导入springmvc和servelet坐标  使用@Controller注解将类变成bean，使用@RequestMapping注解 @Controllerpublic class UserController &amp;#123;    &#x2F;&#x2F;设置映射路径为&#x2F;save，即外部访问路径    @RequestMapping(&quot;&#x2F;save&quot;)    &#x2F;&#x2F;设置当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC学习">
+<meta property="og:url" content="http://example.com/2022/07/12/SpringMVC&&SSM%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="一条咸鱼">
+<meta property="og:description" content="SpringMVC基础步骤 导入springmvc和servelet坐标  使用@Controller注解将类变成bean，使用@RequestMapping注解 @Controllerpublic class UserController &amp;#123;    &#x2F;&#x2F;设置映射路径为&#x2F;save，即外部访问路径    @RequestMapping(&quot;&#x2F;save&quot;)    &#x2F;&#x2F;设置当">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i-s2.328888.xyz/2022/06/27/62b9990181299.jpg">
+<meta property="article:published_time" content="2022-07-12T06:54:36.000Z">
+<meta property="article:modified_time" content="2022-07-14T04:30:24.104Z">
+<meta property="article:author" content="ZhengBingwen">
+<meta property="article:tag" content="后端学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i-s2.328888.xyz/2022/06/27/62b9990181299.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/07/12/SpringMVC&amp;&amp;SSM%E5%AD%A6%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SpringMVC学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-14 12:30:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/05/24/edH1KQiOPxMSslL.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i-s2.328888.xyz/2022/06/27/62b9990181299.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一条咸鱼</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringMVC学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-12T06:54:36.000Z" title="发表于 2022-07-12 14:54:36">2022-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-14T04:30:24.104Z" title="更新于 2022-07-14 12:30:24">2022-07-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SpringMVC学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><h3 id="基础步骤"><a href="#基础步骤" class="headerlink" title="基础步骤"></a>基础步骤</h3><ol>
+<li><p>导入springmvc和servelet坐标</p>
+</li>
+<li><p>使用@Controller注解将类变成bean，使用@RequestMapping注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置映射路径为/save，即外部访问路径</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/save&quot;)</span></span><br><span class="line">    <span class="comment">//设置当前操作返回结果为指定json数据（本质上是一个字符串信息）</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">save</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;user save ...&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&#123;&#x27;info&#x27;:&#x27;springmvc&#x27;&#125;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置映射路径为/delete，即外部访问路径</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/delete&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">delete</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;user save ...&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&#123;&#x27;info&#x27;:&#x27;springmvc&#x27;&#125;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化spring环境</p>
+</li>
+<li><p>设置请求控制</p>
+</li>
+</ol>
+<h3 id="与spring的加载控制"><a href="#与spring的加载控制" class="headerlink" title="与spring的加载控制"></a>与spring的加载控制</h3><p>使用固定的格式控制</p>
+<h3 id="PostMan使用"><a href="#PostMan使用" class="headerlink" title="PostMan使用"></a>PostMan使用</h3><h3 id="设置请求映射路径"><a href="#设置请求映射路径" class="headerlink" title="设置请求映射路径"></a>设置请求映射路径</h3><p>具体到某个类的请求路径即可，防止与其他的类混淆</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义表现层控制器bean</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span> <span class="comment">//路径前缀</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置映射路径为/save，即外部访问路径</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/save&quot;)</span></span><br><span class="line">    <span class="comment">//设置当前操作返回结果为指定json数据（本质上是一个字符串信息）</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">save</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;user save ...&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&#123;&#x27;info&#x27;:&#x27;springmvc&#x27;&#125;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置映射路径为/delete，即外部访问路径</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/delete&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">delete</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;user save ...&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&#123;&#x27;info&#x27;:&#x27;springmvc&#x27;&#125;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Get 直接在下方表单里传递数据</li>
+<li>Post 需要在Body标签里面传递数据 —- 关于中文乱码的问题使用<strong>Filter类</strong>即可</li>
+</ul>
+<h3 id="参数的传递"><a href="#参数的传递" class="headerlink" title="参数的传递"></a>参数的传递</h3><ul>
+<li><p>如果请求参数与Controller类里面的参数不匹配，加入一个RequedtParam注解自动匹配</p>
+</li>
+<li><p>&#96;&#96;&#96;Java<br>&#x2F;&#x2F;普通参数：请求参数名与形参名不同时，使用@RequestParam注解关联请求参数名称与形参名称之间的关系<br>@RequestMapping(“&#x2F;commonParamDifferentName”)<br>@ResponseBody<br>public String commonParamDifferentName(@RequestParam(“name”) String userName , int age){<br>System.out.println(“普通参数传递 userName &#x3D;&#x3D;&gt; “+userName);<br>System.out.println(“普通参数传递 age &#x3D;&#x3D;&gt; “+age);<br>return “{‘module’:’common param different name’}”;<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **使用json传递数据**</span><br><span class="line"></span><br><span class="line">1. 导入json坐标</span><br><span class="line"></span><br><span class="line">2. 用postman发送数据</span><br><span class="line"></span><br><span class="line">3. ```Java</span><br><span class="line">   //开启json数据类型自动转换</span><br><span class="line">   @EnableWebMvc</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="4">
+<li><pre><code class="Java">@RequestBody List&lt;String&gt; likes //修改注解
+</code></pre>
+</li>
+</ol>
+<ul>
+<li><p>日期类型传参</p>
+<p>使用@DataTimeFormat的pattern属性设置日期的形式</p>
+</li>
+<li><p>响应页面 本质上@ResponseBody可以将对象转为json数据</p>
+</li>
+<li><p><strong>REST风格</strong> — 见springboot详情</p>
+</li>
+<li><p>设置对静态资源的访问放行</p>
+</li>
+</ul>
+<h2 id="SSM整合"><a href="#SSM整合" class="headerlink" title="SSM整合"></a>SSM整合</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ZhengBingwen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/07/12/SpringMVC&amp;&amp;SSM%E5%AD%A6%E4%B9%A0/">http://example.com/2022/07/12/SpringMVC&amp;&amp;SSM%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">一条咸鱼</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/">后端学习</a></div><div class="post_share"><div class="social-share" data-image="https://i-s2.328888.xyz/2022/06/27/62b9990181299.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/14/MybatisPlus%E5%AD%A6%E4%B9%A0/"><img class="prev-cover" src="https://i-s2.328888.xyz/2022/06/25/62b69f61c3eb9.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MybatisPlus学习</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/11/MyBatis%E5%AD%A6%E4%B9%A0/"><img class="next-cover" src="https://i-s2.328888.xyz/2022/06/25/62b69f61c3eb9.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Mybatis学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/11/MyBatis%E5%AD%A6%E4%B9%A0/" title="Mybatis学习"><img class="cover" src="https://i-s2.328888.xyz/2022/06/25/62b69f61c3eb9.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-11</div><div class="title">Mybatis学习</div></div></a></div><div><a href="/2022/07/14/MybatisPlus%E5%AD%A6%E4%B9%A0/" title="MybatisPlus学习"><img class="cover" src="https://i-s2.328888.xyz/2022/06/25/62b69f61c3eb9.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-14</div><div class="title">MybatisPlus学习</div></div></a></div><div><a href="/2022/07/09/Spring%E5%AD%A6%E4%B9%A0/" title="Spring学习"><img class="cover" src="https://i-s2.328888.xyz/2022/06/25/62b69f61c3eb9.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-09</div><div class="title">Spring学习</div></div></a></div><div><a href="/2022/06/24/git%E5%AD%A6%E4%B9%A0/" title="git学习"><img class="cover" src="https://i-s2.328888.xyz/2022/06/25/62b67e2d7577e.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-24</div><div class="title">git学习</div></div></a></div><div><a href="/2022/06/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="数据库基础"><img class="cover" src="https://i-s2.328888.xyz/2022/06/27/62b998ff9fce4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-27</div><div class="title">数据库基础</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/05/24/edH1KQiOPxMSslL.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZhengBingwen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BingwenZheng"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">努力学习技术的带学生</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringMVC"><span class="toc-number">1.</span> <span class="toc-text">SpringMVC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.</span> <span class="toc-text">基础步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8Espring%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text">与spring的加载控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PostMan%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">PostMan使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%B7%E6%B1%82%E6%98%A0%E5%B0%84%E8%B7%AF%E5%BE%84"><span class="toc-number">1.4.</span> <span class="toc-text">设置请求映射路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%A0%E9%80%92"><span class="toc-number">1.5.</span> <span class="toc-text">参数的传递</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSM%E6%95%B4%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">SSM整合</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/16/%E5%93%88%E5%A8%81%E9%A3%9F%E5%A0%82%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" title="哈威食堂系统开发实录"><img src="https://i-s2.328888.xyz/2022/06/27/62b998ff9fce4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈威食堂系统开发实录"/></a><div class="content"><a class="title" href="/2022/07/16/%E5%93%88%E5%A8%81%E9%A3%9F%E5%A0%82%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" title="哈威食堂系统开发实录">哈威食堂系统开发实录</a><time datetime="2022-07-16T02:10:04.000Z" title="发表于 2022-07-16 10:10:04">2022-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/14/debug%E5%AE%9E%E5%BD%95/" title="debug实录"><img src="https://i-s2.328888.xyz/2022/06/25/62b67e2d7577e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="debug实录"/></a><div class="content"><a class="title" href="/2022/07/14/debug%E5%AE%9E%E5%BD%95/" title="debug实录">debug实录</a><time datetime="2022-07-14T07:49:58.000Z" title="发表于 2022-07-14 15:49:58">2022-07-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/14/MybatisPlus%E5%AD%A6%E4%B9%A0/" title="MybatisPlus学习"><img src="https://i-s2.328888.xyz/2022/06/25/62b69f61c3eb9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MybatisPlus学习"/></a><div class="content"><a class="title" href="/2022/07/14/MybatisPlus%E5%AD%A6%E4%B9%A0/" title="MybatisPlus学习">MybatisPlus学习</a><time datetime="2022-07-14T06:25:22.000Z" title="发表于 2022-07-14 14:25:22">2022-07-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/SpringMVC&amp;&amp;SSM%E5%AD%A6%E4%B9%A0/" title="SpringMVC学习"><img src="https://i-s2.328888.xyz/2022/06/27/62b9990181299.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringMVC学习"/></a><div class="content"><a class="title" href="/2022/07/12/SpringMVC&amp;&amp;SSM%E5%AD%A6%E4%B9%A0/" title="SpringMVC学习">SpringMVC学习</a><time datetime="2022-07-12T06:54:36.000Z" title="发表于 2022-07-12 14:54:36">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/11/MyBatis%E5%AD%A6%E4%B9%A0/" title="Mybatis学习"><img src="https://i-s2.328888.xyz/2022/06/25/62b69f61c3eb9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mybatis学习"/></a><div class="content"><a class="title" href="/2022/07/11/MyBatis%E5%AD%A6%E4%B9%A0/" title="Mybatis学习">Mybatis学习</a><time datetime="2022-07-11T03:33:49.000Z" title="发表于 2022-07-11 11:33:49">2022-07-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By ZhengBingwen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
